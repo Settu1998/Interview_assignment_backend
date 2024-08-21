@@ -121,21 +121,12 @@ app.post('/api/createLead', async(req,res)=>{
     }
 })
 
-const connection = mysql.createConnection({
-    host: 'sql.freedb.tech',      // Replace with your database host
-    user: 'freedb_settu',           // Replace with your database username
-    password: '@X!ZZnYNWdq7!fr',   // Replace with your database password
-    database: 'freedb_task_database' // Replace with your database name
-  });
-  
-  // Connect to the database
-  connection.connect((err) => {
-    if (err) {
-      console.error('Error connecting to the database:', err);
-      return;
-    }
-    console.log('Connected to the database.');
-  });
+
+db.raw('SELECT 1').then(()=>{
+    console.log('mysql database is connected')
+}).catch((err)=>{
+    console.log(err)
+})
 
 
 
